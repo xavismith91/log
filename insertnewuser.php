@@ -10,7 +10,7 @@
 //declaramos variables para la conexion a la base de datos
 
 $servername = "localhost"; 
-$database = "usuarios";
+$database = "sistema";
 $username = "root";
 $password = "";
 
@@ -34,7 +34,7 @@ $sql = "INSERT INTO usuarios (nombre,correo,usuario,contrasena,recontrasena) VAL
 
 if (mysqli_query($conn,$sql)){
      
-     header("location:entrada.html");
+     header("location:login.html");
 }
 else
 {
