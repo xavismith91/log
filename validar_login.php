@@ -1,36 +1,21 @@
 <?php
 
-// inisiamos sesión
+// Iniciar sesión
 session_start();
 
-//deckaramos las variables para el uso de inicio de sesion
+// Conectarse a la base de datos
+$db = new mysqli('localhost', 'root', '', 'sistema');
 
+// Validar si la conexión fue exitosa
+if ($db->connect_error) {
+    die('Error de conexión: ' . $db->connect_error);
+}
+
+// Obtener los datos del formulario
 $usuario = $_POST['usuario'];
 $contrasena = $_POST['contrasena'];
 
-//declaramos variables para la conexión a la  base de datos
-
-$servername = "localhost"; 
-$database = "sistema";
-$username = "root";
-$password = "";
-
-//creamos el qwerty para la conexxión 
-
-$conn = mysqli_connect($servername, $username, $password, $database);
-
-
-// revisamos la conexión
-
-if(!$conn)
-{
-    die("Falló la conexion: ". mysqli_connect_error()); 
-}else
-echo "Conexion exitosa";
-
-
-//iniciamos la validadcion de los datos mediante un query
-
+// Consulta SQL para verificar el usuario y la contraseña
 $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND contrasena = '$contrasena'";
 $resultado = $db->query($sql);
 
@@ -38,24 +23,13 @@ $resultado = $db->query($sql);
 if ($resultado->num_rows > 0) {
     // Inicio de sesión exitoso
     $_SESSION['usuario'] = $usuario;
-    echo '<script>alert("Sesión Iniciada");</script>';
-    header('Location:index.html');
+    header('Location: index.html');
 } else {
     // Inicio de sesión fallido
-    echo '<script>alert("Error, verifique su información");</script>'; 
+    echo 'Usuario o contraseña incorrectos.';
 }
 
+// Cerrar la conexión a la base de datos
+$db->close();
 
-
-
-
-
-
-
-
-
-
-
-
-
->
+?>

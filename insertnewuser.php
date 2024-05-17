@@ -4,7 +4,7 @@
     $correo = $_POST['correo'];
     $usuario= $_POST['usuario'];
     $contrasena = $_POST['contrasena'];
-    $reconstrasena = $_POST['recontrasena'];
+    $recontrasena = $_POST['recontrasena'];
     //con esta asignacion se encriptará la contraseña 
     // $hash = password_hash($contrasena, PASSWORD_BCRYPT);
 //declaramos variables para la conexion a la base de datos
