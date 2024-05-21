@@ -34,7 +34,7 @@ $sql = "INSERT INTO usuarios (nombre,correo,usuario,contrasena,recontrasena) VAL
 
 if (mysqli_query($conn,$sql)){
      
-     header("location:login.html");
+     header("location: login.html");
 }
 else
 {

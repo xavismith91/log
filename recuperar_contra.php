@@ -37,10 +37,6 @@ if ($resultado->num_rows > 0) {
         // Usar una función o librería para enviar el correo electrónico
         // (por ejemplo, PHPMailer)
 
-        $sheader=$sheader."X-Mailer:PHP/".phpversion()."\n";
-        $sheader=$sheader."Mime-Version: 1.0\n";
-        $sheader=$sheader."Content-Type: text/html; charset=utf-8\n";
-
         echo 'Se ha enviado un correo electrónico con las instrucciones para recuperar su contraseña.';
     } else {
         echo 'Error al actualizar el token de recuperación.';
