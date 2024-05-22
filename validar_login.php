@@ -23,10 +23,12 @@ $resultado = $db->query($sql);
 if ($resultado->num_rows > 0) {
     // Inicio de sesión exitoso
     $_SESSION['usuario'] = $usuario;
-    header('Location: index.html');
+    header('Location: getusuarios.php');
 } else {
     // Inicio de sesión fallido
-    echo 'Usuario o contraseña incorrectos.';
+    echo '<a href="login.html" class="text-dark">Regresar</a>';
+    
+    
 }
 
 // Cerrar la conexión a la base de datos

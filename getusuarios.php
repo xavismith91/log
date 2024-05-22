@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Usuario</title>
+</head>
+
+<body>
+
+    <h1>Lista de Usuarios Activos</h1>
+
+    <table>
+        <tr>
+            <th>nombre</th>
+            <th>correo</th>
+            <th>usuario</th>
+            <th>contrasena</th>
+            <th>token_recuperacion</th>
+        </tr>
+        
+    </table>
+
+
+
 <?php
         $servername = "localhost";
         $username = "root";
@@ -12,22 +37,27 @@
             die("Conexión fallida: " . $conn->connect_error);
         }
 
-        $sql = "SELECT nombre, correo, ususario, contrasena, token_recuperacion FROM usuarios";
+        $sql = "SELECT * FROM usuarios";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             // Salida de datos por cada fila
             while($row = $result->fetch_assoc()) {
                 echo "<tr>
-                        <td>" . $row["nombre"]. "</td>
+                        <td>" . $row["nombre"]. "></td>
                         <td>" . $row["correo"]. "</td>
                         <td>" . $row["usuario"]. "</td>
-                        <td>" . $row["contraena"]. "</td>
+                        <td>" . $row["contrasena"]. "</td>
                         <td>" . $row["token_recuperacion"]. "</td>
+                        <br>
                       </tr>";
             }
         } else {
-            echo "<tr><td colspan='4'>No se encontraron resultados</td></tr>";
+            echo "<tr><td colspan='5'>No se encontraron resultados</td></tr>";
         }
         $conn->close();
         ?>
+
+    </body>
+
+    </html>
