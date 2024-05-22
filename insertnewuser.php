@@ -30,7 +30,7 @@ echo "Conexion exitosa";
 
 //hacemos el query para insertar registros 
 
-$sql = "INSERT INTO usuarios (nombre,correo,usuario,contrasena,recontrasena) VALUES ('$nombre','$correo','$usuario','$contrasena','$recontrasena')";
+$sql = "INSERT INTO usuarios (nombre,correo,usuario,contrasena) VALUES ('$nombre','$correo','$usuario','$contrasena')";
 
 if (mysqli_query($conn,$sql)){
      
