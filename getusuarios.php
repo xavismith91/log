@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
     <title>Vista Usuario</title>
 </head>
 
 <body>
 
-    <h1>Lista de Usuarios Activos</h1>
-
-    <table>
+    <h1>Usuarios</h1>
+    
+    <table border="1">
         <tr>
             <th>nombre</th>
             <th>correo</th>
@@ -24,6 +25,9 @@
 
 
 <?php
+
+session_start();
+
         $servername = "localhost";
         $username = "root";
         $password = "";

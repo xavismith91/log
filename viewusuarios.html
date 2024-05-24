@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
     <title>Vista Usuario</title>
 </head>
 <body>
@@ -11,16 +12,17 @@
 
     <table>
         <tr>
-            <th>nombre</th>
-            <th>correo</th>
+            <th>Nombre</th>
+            <th>Correo</th>
             <th>usuario</th>
-            <th>contrasena</th>
-            <th>token_recuperacion</th>
+            <th>contraseña</th>
+            <th>token de recuperación</th>
         </tr>
         
     </table>
 
     <?php
+        
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -49,7 +51,7 @@
                       </tr>";
             }
         } else {
-            echo "<tr><td colspan='5'>No se encontraron resultados</td></tr>";
+            echo "<tr><td colspan='4'>No se encontraron resultados</td></tr>";
         }
         $conn->close();
         ?>
