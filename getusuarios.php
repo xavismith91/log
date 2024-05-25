@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
     <title>Vista Usuario</title>
 </head>
 
 <body>
 
-    <h1>Lista de Usuarios Activos</h1>
-
+    <h1>Usuarios</h1>
+    <a href="login.html">Cerrar sesión</a>
     <table>
         <tr>
             <th>nombre</th>
@@ -19,11 +20,10 @@
             <th>token_recuperacion</th>
         </tr>
         
-    </table>
+        <?php
 
+session_start();
 
-
-<?php
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -43,8 +43,10 @@
         if ($result->num_rows > 0) {
             // Salida de datos por cada fila
             while($row = $result->fetch_assoc()) {
+                echo "<br>";
+
                 echo "<tr>
-                        <td>" . $row["nombre"]. "></td>
+                        <td>" . $row["nombre"]. "</td>
                         <td>" . $row["correo"]. "</td>
                         <td>" . $row["usuario"]. "</td>
                         <td>" . $row["contrasena"]. "</td>
@@ -56,7 +58,13 @@
             echo "<tr><td colspan='5'>No se encontraron resultados</td></tr>";
         }
         $conn->close();
-        ?>
+        session_abort();
+        ?> 
+    </table>
+
+
+
+
 
     </body>
 

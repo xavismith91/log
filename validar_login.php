@@ -27,7 +27,7 @@ if ($resultado->num_rows > 0) {
 } else {
     // Inicio de sesión fallido
     echo '<a href="login.html" class="text-dark">Regresar</a>';
-    
+    // echo '<script>'
     
 }
 
