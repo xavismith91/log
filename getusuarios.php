@@ -8,9 +8,8 @@
 </head>
 
 <body>
-
-    <h1>Usuarios</h1>
-    <a href="login.html">Cerrar sesión</a>
+<!-- 
+    <h1>Usuarios</h1> -->
     <table>
         <tr>
             <th>nombre</th>
@@ -53,7 +52,10 @@ session_start();
                         <td>" . $row["token_recuperacion"]. "</td>
                         <br>
                       </tr>";
+                
+               
             }
+            
         } else {
             echo "<tr><td colspan='5'>No se encontraron resultados</td></tr>";
         }
@@ -65,7 +67,7 @@ session_start();
 
 
 
-
+    <a href="login.html">Cerrar sesión</a>
     </body>
 
     </html>
