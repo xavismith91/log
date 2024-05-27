@@ -3,7 +3,7 @@
 
 
 // Parámetros de conexión a la base de datos
-$hostname = "127.0.0.1";
+$hostname = "localhost";
 $username = "root";
 $password = "";
 $database = "sistema";
