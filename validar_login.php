@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+   
 <?php
 
 // Iniciar sesión
@@ -21,17 +32,33 @@ $resultado = $db->query($sql);
 
 // Validar si la consulta encontró un registro
 if ($resultado->num_rows > 0) {
-    // Inicio de sesión exitoso
     $_SESSION['usuario'] = $usuario;
     header('Location: getusuarios.php');
 } else {
-    // Inicio de sesión fallido
-    echo '<a href="login.html" class="text-dark">Regresar</a>';
+
+    echo '<script>Swal.fire({
+        position: "top-center",
+        icon: "error",
+        title: "verifica tu usuario y contraseña e intentalo de nuevo",
+        showConfirmButton: false,
+        timer: 3500
+      })</script>';
+    
+    // echo'<script type="text/javascript">
+    // alert("Información errónea, verifiquela e intente de nuevo");
+    // window.location.href="login.html";
+    // </script>';
+    // echo '<center><a href="login.html" class="text-dark">Regresar</a></center>';
     // echo '<script>'
     
 }
+
 
 // Cerrar la conexión a la base de datos
 $db->close();
 
 ?>
+
+</body>
+
+</html>

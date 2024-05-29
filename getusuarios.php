@@ -3,23 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/all.min.css" rel="stylesheet">
+	<link href="css/datatables.min.css" rel="stylesheet">
     <title>Vista Usuario</title>
 </head>
 
 <body>
-<!-- 
-    <h1>Usuarios</h1> -->
-    <table>
-        <tr>
-            <th>nombre</th>
-            <th>correo</th>
-            <th>usuario</th>
-            <th>contrasena</th>
-            <th>token_recuperacion</th>
-        </tr>
-        
-        <?php
+<a href="register.html" class="btn btn-primary my-4">Nuevo Registro</a>
+<a href="login.html" class="btn btn-danger my-4">Cerrar sesión</a>
+<div class="table-responsive-mf">
+			<table class="display table table-bordered" id="mitabla">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Correo</th>
+						<th>Usuario</th>
+						<th>Contraseña</th>
+                        <th>token_recuperación</th>
+						<!-- <th width="5%"></th>
+						<th width="5%"></th> -->
+					</tr>
+				</thead>
+
+				<tbody>
+
+
+
+                <div class="modal fade" id="eliminaModal" tabindex="-1" aria-labelledby="eliminaModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Eliminar Registro</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					¿Desea eliminar el registro?
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+					<a class="btn btn-danger btn-ok">Eliminar</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+    <!-- <script>
+		$(document).ready(function() {
+			$('#mitabla').DataTable({
+				"order": [
+					[0, "asc"]
+				],
+				"language": {
+					"lengthMenu": "Mostrar _MENU_ registros por pagina",
+					"info": "Mostrando pagina _PAGE_ de _PAGES_",
+					"infoEmpty": "No hay registros disponibles",
+					"infoFiltered": "(filtrada de _MAX_ registros)",
+					"loadingRecords": "Cargando...",
+					"processing": "Procesando...",
+					"search": "Buscar:",
+					"zeroRecords": "No se encontraron registros coincidentes",
+					"paginate": {
+						"next": "Siguiente",
+						"previous": "Anterior"
+					},
+				},
+				"bProcessing": true,
+				"bServerSide": true,
+				"sAjaxSource": "server_process.php"
+			});
+		});
+
+		let eliminaModal = document.getElementById('eliminaModal')
+		eliminaModal.addEventListener('shown.bs.modal', event => {
+			let button = event.relatedTarget
+			let url = button.getAttribute('data-bs-href')
+			eliminaModal.querySelector('.modal-footer .btn-ok').href = url
+		})
+	</script> -->
+
+                <script src="js/bootstrap.bundle.min.js"></script>
+	            <script src="js/jquery.min.js"></script>
+	            <script src="js/datatables.min.js"></script>
+
+
+<?php
 
 session_start();
 
@@ -62,12 +133,20 @@ session_start();
         $conn->close();
         session_abort();
         ?> 
+				</tbody>
+			</table>
+		</div>
+        
+       
     </table>
 
 
 
 
-    <a href="login.html">Cerrar sesión</a>
+    
+  
+    
+
     </body>
 
     </html>

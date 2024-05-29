@@ -37,7 +37,11 @@ if ($resultado->num_rows > 0) {
         // Usar una función o librería para enviar el correo electrónico
         // (por ejemplo, PHPMailer)
 
-        echo 'Se ha enviado un correo electrónico con las instrucciones para recuperar su contraseña.';
+        
+        echo'<script type="text/javascript">
+        alert("Se ha enviado un correo electrónico con las instrucciones para recuperar su contraseña.");
+        window.location.href="login.html";
+        </script>';
     } else {
         echo 'Error al actualizar el token de recuperación.';
     }
